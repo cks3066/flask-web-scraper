@@ -9,7 +9,7 @@ db = {}
 
 @app.route("/")
 def home():
-    return render_template("potato.html")
+    return render_template("mainPage.html")
 
 
 @app.route("/report")
@@ -31,19 +31,21 @@ def report():
                            resultNumber=len(jobs),
                            jobs=jobs)
 
+
 @app.route("/export")
 def export():
-  try:
-    word = request.args.get('word')
-    if not word:
-      raise Exception()
-    word = word.lower()
-    jobs = db.get(word)
-    if not jobs:
-      raise Exception()
-    save_to_file(jobs)
-    return  send_file("jobs.csv")
-  except:
-    return redirect("/")
+    try:
+        word = request.args.get('word')
+        if not word:
+            raise Exception()
+        word = word.lower()
+        jobs = db.get(word)
+        if not jobs:
+            raise Exception()
+        save_to_file(jobs)
+        return send_file("jobs.csv")
+    except:
+        return redirect("/")
 
-app.run(host="0.0.0.0")
+
+app.run()
