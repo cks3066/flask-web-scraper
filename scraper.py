@@ -21,7 +21,14 @@ def extract_job(html):
             company = company.string
     location = html.find("div", {"class", "companyLocation"}).string
     job_id = html["data-jk"]
-    return {'title': title, 'company': company, 'location': location, 'link': f"https://kr.indeed.com/%EC%B1%84%EC%9A%A9%EB%B3%B4%EA%B8%B0?jk={job_id}&from=serp&vjs=3"}
+    date = html.find("span", {"class", "date"}).text
+    if date[0] == 'P':
+        date = date[6:]
+    elif date[0] == 'E':
+        date = date[8:]
+    else:
+        date = "정보없음"
+    return {'title': title, 'company': company, 'location': location, 'link': f"https://kr.indeed.com/%EC%B1%84%EC%9A%A9%EB%B3%B4%EA%B8%B0?jk={job_id}&from=serp&vjs=3", 'date': date}
 
 
 def extract_indeed_pages(url):
@@ -54,7 +61,7 @@ def extract_indeed_jobs(last_page, url):
 
 
 def get_jobs(word):
-    url = f"https://kr.indeed.com/%EC%B7%A8%EC%97%85?q={word}&limit={LIMIT}&filter=0&vjk=e742db63ad7e269f"
+    url = f"https://kr.indeed.com/%EC%B7%A8%EC%97%85?q={word}&fromage=14&limit={LIMIT}&filter=0&vjk=e742db63ad7e269f"
     last_page = extract_indeed_pages(url)
     jobs = extract_indeed_jobs(last_page, url)
     return jobs
