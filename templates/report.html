@@ -6,6 +6,9 @@
     <title>Nomad Jobs - Job Search</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+      body {
+        cursor: auto;
+      }
       section > a {
         display: grid;
         gap: 20px;
@@ -52,17 +55,18 @@
                 class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
               >
                 <div class="hidden sm:ml-6 sm:flex">
-                  <form action="/report" method="get">
+                  <form class="flex justify-center mr-2" action="/report" method="get">
                     <input
                       class="rounded border-2 border-gray-300 w-48 pl-2 h-8"
                       placeholder="키워드를 입력하세요."
                       required
                       name="word"
-                      id="keywordInput"
+                      id="_keywordInput"
                     />
                     <button
                       class="relative inline-flex items-center px-4 py-1 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-blue-600 shadow-sm hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-400 active:bg-blue-700 transition ease-in-out duration-150"
-                    >
+                      id="_submitButton"
+                      >
                       검색
                     </button>
                   </div>
@@ -73,6 +77,7 @@
           </div>
         </nav>
       </header>
+      <script type="text/javascript" src="../static/js/report.js"></script>
 
       <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div class="mx-auto pt-20 sm:pt-20 md:pt-24 lg:pt-32 xl:pt-36">
