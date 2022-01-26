@@ -67,28 +67,34 @@
           </div>
         </div>
       </div>
-      <div class="pt-7 pb-32 bg-gray-50 w-full px-4 sm:px-6 lg:px-8">
+
+      
+      <div class="pt-8 pb-16 bg-gray-50 w-full px-4 sm:px-6 lg:px-8">
+        <div class="mb-8">
         <form class="mt-8 flex justify-center" action="/report" method="get">
           <input
             class="rounded border-2 border-gray-300 w-72 sm:w-62 pl-2 h-8"
             placeholder="직업에 대한 키워드를 입력하세요."
             required
             name="word"
+            id="keywordInput"
           />
           <button
             class="relative inline-flex items-center px-4 py-1 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-blue-600 shadow-sm hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-400 active:bg-blue-700 transition ease-in-out duration-150"
           >
             검색
           </button>
+        </div>
         </form>
         <div class="flex justify-center">
-          <div>파이썬</div>
-          <div>python</div>
-          <div>플라스크</div>
-          <div>flask</div>
-          <div>장고</div>
-          <div>django</div>
+          <div class="mx-2 text-xs px-2 py-0.5 rounded-md font-medium bg-gray-500 text-white cursor-pointer" id="파이썬">파이썬</div>
+          <div class="mx-2 text-xs px-2 py-0.5 rounded-md font-medium bg-gray-500 text-white cursor-pointer" id="python">python</div>
+          <div class="mx-2 text-xs px-2 py-0.5 rounded-md font-medium bg-gray-500 text-white cursor-pointer" id="프론트엔드">프론트엔드</div>
+          <div class="mx-2 text-xs px-2 py-0.5 rounded-md font-medium bg-gray-500 text-white cursor-pointer" id="frontend">frontend</div>
+          <div class="mx-2 text-xs px-2 py-0.5 rounded-md font-medium bg-gray-500 text-white cursor-pointer" id="백엔드">백엔드</div>
+          <div class="mx-2 text-xs px-2 py-0.5 rounded-md font-medium bg-gray-500 text-white cursor-pointer" id="backend">backend</div>
         </div>
+        <script type="text/javascript" src="../static/js/clickKeyword.js"></script>
       </div>
       <footer class="bg-white">
         <div
